@@ -1,0 +1,14 @@
+.main-container {
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    background-color: #323234;
+}
+
+.main-page {
+    width: 500px;
+    height: 800px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}

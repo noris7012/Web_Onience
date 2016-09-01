@@ -1,13 +1,12 @@
 {% load staticfiles %}
 
 <!DOCTYPE html>
-<html>
-<head lang="en">
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-    <title>총선생존게임</title>
+    <title>시작</title>
 
     <link rel="stylesheet" href="{% static "css/common.css" %}" type="text/css" />
-    <link rel="stylesheet" href="{% static "css/index.css" %}" type="text/css" />
 </head>
 
 <body>
@@ -17,9 +16,12 @@
             <img src="{% static "img/index/title.png" %}" />
         </a>
 
-        <a href="/start/">
-            <img src="{% static "img/index/click.jpg" %}" />
-        </a>
+        <form method="get">
+            <input id="name" type="text" placeholder="이름"/>
+            <input id="party" type="text" placeholder="정당"/>
+
+            <button>시작하기</button>
+        </form>
     </div>
 </div>
 </body>
