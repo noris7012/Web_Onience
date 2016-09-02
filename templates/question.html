@@ -1,0 +1,50 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Question {{ level }}</title>
+
+    <link rel="stylesheet" href="{% static "css/common.css" %}" type="text/css" />
+    <link rel="stylesheet" href="{% static "css/question.css" %}" type="text/css" />
+
+    <script type="text/javascript" src="{% static "js/jquery-3.1.0.min.js" %}" ></script>
+
+    <script type="text/javascript">
+        $(function(){
+            $('.choice').click(function(){
+                console.log(this);
+                console.log($(this).attr("value"));
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="main-container">
+    <div class="main-page">
+        <a href="/" class="main-page__logo">
+            <img src="{% static "img/index/title.png" %}" />
+        </a>
+
+        <br>
+
+        <a>
+            Q1. 픽미픽미픽미 업 ~ 로고송세 쓸 선거비용은?
+        </a>
+
+        <br>
+
+        <br>
+
+        <br>
+
+        <div class="choice" value="1000000">100만원</div>
+        <div class="choice" value="3000000">300만원</div>
+        <div class="choice" value="5000000">500만원</div>
+        <div class="choice" value="7000000">700만원</div>
+        <div class="choice" value="10000000">1000만원</div>
+    </div>
+</div>
+</body>
+</html>

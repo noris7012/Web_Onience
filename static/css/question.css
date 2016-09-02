@@ -1,0 +1,14 @@
+.choice {
+    padding: 10px 0;
+    border-top: 1px solid #B9BEBF;
+    font-size: 1.2em;
+    font-weight: 500;
+    background-color: #CFD4D5;
+    color: #414042;
+    cursor: pointer;
+}
+
+.choice:hover{
+    background-color: #4950D3;
+    color: white;
+}

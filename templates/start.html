@@ -16,11 +16,12 @@
             <img src="{% static "img/index/title.png" %}" />
         </a>
 
-        <form method="get">
-            <input id="name" type="text" placeholder="이름"/>
-            <input id="party" type="text" placeholder="정당"/>
+        <form method="post">
+            {% csrf_token %}
+            <input name="name" type="text" placeholder="이름"/>
+            <input name="party" type="text" placeholder="정당"/>
 
-            <button>시작하기</button>
+            <button type="submit" value="submit">시작하기</button>
         </form>
     </div>
 </div>
