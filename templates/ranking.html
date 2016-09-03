@@ -1,0 +1,80 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ranking</title>
+
+    <link rel="stylesheet" href="{% static "css/common.css" %}" type="text/css" />
+</head>
+<body>
+<div class="main-container">
+    <div class="main-page">
+        <a href="/" class="main-page__logo">
+            <img src="{% static "img/index/title.png" %}" />
+        </a>
+
+        <div>
+            전체 랭킹
+        </div>
+        <div>
+            정당 랭킹
+        </div>
+
+        <div id="candidate">
+            <table>
+                <thead>
+                <tr>
+                    <th>순위</th>
+                    <th>이름</th>
+                    <th>금액</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                {% for row in candidate %}
+                    <tr>
+                        <td>{{ row.0 }}</td>
+                        <td>{{ row.1 }}</td>
+                        <td>{{ row.2 }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div id="party">
+            <table>
+                <thead>
+                <tr>
+                    <th>순위</th>
+                    <th>이름</th>
+                    <th>금액</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                {% for row in party %}
+                    <tr>
+                        <td>{{ row.0 }}</td>
+                        <td>{{ row.1 }}</td>
+                        <td>{{ row.2 }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div>
+            돌아가기
+        </div>
+
+        <div>
+            다음질문
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
