@@ -14,16 +14,23 @@ def start(request):
     if request.method == 'GET':
         return render_to_response('start.html', c)
 
-    #
-    request.session.clear()
+    step = int(request.POST['step'])
 
-    #
-    request.session['name'] = request.POST['name']
-    request.session['party'] = request.POST['party']
+    if step == 0:
+        #
+        request.session.clear()
 
-    #
-    c['level'] = 1
-    c['name'] = request.session['name']
-    c['party'] = request.session['party']
+        #
+        request.session['name'] = request.POST['name']
+        request.session['party'] = request.POST['party']
 
-    return render_to_response('question.html', c)
+        #
+        c['level'] = 1
+
+        return render_to_response('question.html', c)
+    else:
+        c['level'] = step + 1
+
+        return render_to_response('question.html', c)
+
+    return render_to_response('start.html', c)

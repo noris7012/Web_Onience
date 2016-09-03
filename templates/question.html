@@ -13,9 +13,10 @@
 
     <script type="text/javascript">
         $(function(){
-            $('.choice').click(function(){
-                console.log(this);
-                console.log($(this).attr("value"));
+            $(".choice").click(function(){
+                $("#amount").attr("value", $(this).attr("value"))
+
+                $("#formChoice").submit();
             });
         });
     </script>
@@ -44,6 +45,14 @@
         <div class="choice" value="5000000">500만원</div>
         <div class="choice" value="7000000">700만원</div>
         <div class="choice" value="10000000">1000만원</div>
+
+        <form id="formChoice" method="post">
+            {% csrf_token %}
+            <input name="step" type="hidden" value="{{ level }}" />
+
+            <input name="level" type="hidden" value="{{ level }}" />
+            <input id="amount" name="amount" type="hidden" value="0" />
+        </form>
     </div>
 </div>
 </body>

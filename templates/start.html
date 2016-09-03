@@ -18,6 +18,8 @@
 
         <form method="post">
             {% csrf_token %}
+            <input name="step" type="hidden" value="0" />
+
             <input name="name" type="text" placeholder="이름"/>
             <input name="party" type="text" placeholder="정당"/>
 
