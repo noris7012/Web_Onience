@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="{% static "css/common.css" %}" type="text/css" />
     <link rel="stylesheet" href="{% static "css/question.css" %}" type="text/css" />
 
+    <link href='https://cdn.rawgit.com/openhiun/hangul/14c0f6faa2941116bb53001d6a7dcd5e82300c3f/nanumbarungothic.css' rel='stylesheet' type='text/css'>
+
     <script type="text/javascript" src="{% static "js/jquery-3.1.0.min.js" %}" ></script>
 
     <script type="text/javascript">
@@ -16,7 +18,7 @@
             $(".choice").click(function(){
                 $("#amount").attr("value", $(this).attr("value"))
 
-                $("#formChoice").submit();
+                //$("#formChoice").submit();
             });
         });
     </script>
@@ -24,27 +26,47 @@
 <body>
 <div class="main-container">
     <div class="main-page">
-        <a href="/" class="main-page__logo">
-            <img src="{% static "img/index/title.png" %}" />
-        </a>
+        <img id="progress" src="/static/img/question/Q_bar{{ level }}.png" />
 
-        <br>
-
-        <a>
+        <div id="title">
+            <img id="qicon" src="/static/img/question/Q_icon.png" />
             {{ question.0 }}
-        </a>
+        </div>
 
-        <br>
+        <div id="clist">
+            <label class="choice">
+                <input type="radio" name="choice" value="{{ question.1 }}" />
+                <i></i> {{ question.2 }}
+            </label>
 
-        <br>
+            <img class="border" src="/static/img/question/boder.png" />
 
-        <br>
+            <label class="choice">
+                <input type="radio" name="choice" value="{{ question.3 }}" />
+                <i></i> {{ question.4 }}
+            </label>
 
-        <div class="choice" value="{{ question.1 }}">{{ question.2 }}</div>
-        <div class="choice" value="{{ question.3 }}">{{ question.4 }}</div>
-        <div class="choice" value="{{ question.5 }}">{{ question.6 }}</div>
-        <div class="choice" value="{{ question.7 }}">{{ question.8 }}</div>
-        <div class="choice" value="{{ question.9 }}">{{ question.10 }}</div>
+            <img class="border" src="/static/img/question/boder.png" />
+
+            <label class="choice">
+                <input type="radio" name="choice" value="{{ question.5 }}" />
+                <i></i> {{ question.6 }}
+            </label>
+
+            <img class="border" src="/static/img/question/boder.png" />
+
+            <label class="choice">
+                <input type="radio" name="choice" value="{{ question.7 }}" />
+                <i></i> {{ question.8 }}
+            </label>
+
+            <img class="border" src="/static/img/question/boder.png" />
+
+            <label class="choice">
+                <input type="radio" name="choice" value="{{ question.9 }}" />
+                <i></i> {{ question.10 }}
+            </label>
+        </div>
 
         <form id="formChoice" method="post">
             {% csrf_token %}
