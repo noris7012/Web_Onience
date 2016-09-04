@@ -67,11 +67,20 @@
         </div>
 
         <div>
-            돌아가기
+            <a href="javascript:history.back()">
+                돌아가기
+            </a>
         </div>
 
         <div>
-            다음질문
+            <form method="post">
+                {% csrf_token %}
+                <input name="step" type="hidden" value="{{ level }}" />
+
+                <input name="level" type="hidden" value="{{ level }}" />
+
+                <button type="submit" value="submit">다음질문</button>
+            </form>
         </div>
     </div>
 </div>

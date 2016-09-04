@@ -111,10 +111,12 @@ def start(request):
         return render_to_response('question.html', c)
     else:
         level = int(request.POST['level'])
-        amount = int(request.POST['amount'] if request.POST['amount'] else '-1')
+        amount = int(request.POST.get('amount', -1))
         name = request.session['name']
 
         if amount > 0:
+            c['level'] = step
+
             rclst = rc[level]
             lst = rchead[level] + [rcaver[level]]
             for i in range(0, len(rclst)):
