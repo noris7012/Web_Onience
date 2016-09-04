@@ -1,0 +1,61 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+
+    <link rel="stylesheet" href="{% static "css/common.css" %}" type="text/css" />
+</head>
+<body>
+<div class="main-container">
+    <div class="main-page">
+        <a href="/" class="main-page__logo">
+            <img src="{% static "img/index/title.png" %}" />
+        </a>
+
+        <div>
+            결과
+            <table>
+                <tbody>
+                {% for row in result %}
+                    <tr>
+                    <td>{{ row.0 }}</td>
+                    <td>{{ row.1 }}위</td>
+                    <td>{{ row.2 }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div>
+            <a href="/start">
+                처음부터
+            </a>
+        </div>
+
+        <div>
+            기사보기
+        </div>
+
+        <div>
+            카카오톡
+        </div>
+
+        <div>
+            페이스북
+        </div>
+
+        <div>
+            트위터
+        </div>
+
+        <div>
+            어니스트
+        </div>
+    </div>
+</div>
+</body>
+</html>
