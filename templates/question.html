@@ -31,7 +31,7 @@
         <br>
 
         <a>
-            Q1. 픽미픽미픽미 업 ~ 로고송세 쓸 선거비용은?
+            {{ question.0 }}
         </a>
 
         <br>
@@ -40,11 +40,11 @@
 
         <br>
 
-        <div class="choice" value="1000000">100만원</div>
-        <div class="choice" value="3000000">300만원</div>
-        <div class="choice" value="5000000">500만원</div>
-        <div class="choice" value="7000000">700만원</div>
-        <div class="choice" value="10000000">1000만원</div>
+        <div class="choice" value="{{ question.1 }}">{{ question.2 }}</div>
+        <div class="choice" value="{{ question.3 }}">{{ question.4 }}</div>
+        <div class="choice" value="{{ question.5 }}">{{ question.6 }}</div>
+        <div class="choice" value="{{ question.7 }}">{{ question.8 }}</div>
+        <div class="choice" value="{{ question.9 }}">{{ question.10 }}</div>
 
         <form id="formChoice" method="post">
             {% csrf_token %}

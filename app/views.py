@@ -19,6 +19,8 @@ rphead = [[]]
 rpfoot = [[]]
 rpaver = [[]]
 
+question = [[]]
+
 for i in range(1, N + 1):
     f = open('csv/rc' + str(i) + '.csv', 'r')
     csvReader = csv.reader(f)
@@ -79,6 +81,13 @@ for i in range(1, N + 1):
 
     f.close()
 
+f = open('csv/question.csv')
+csvReader = csv.reader(f)
+
+for row in csvReader:
+    question.append(row)
+
+print (question)
 
 def index(request):
     return render_to_response('index.html')
@@ -112,6 +121,7 @@ def start(request):
 
         #
         c['level'] = 1
+        c['question'] = question[1]
 
         return render_to_response('question.html', c)
     else:
@@ -171,6 +181,7 @@ def start(request):
                 return render_to_response('result.html', c)
             else:
                 c['level'] = step + 1
+                c['question'] = question[step + 1]
 
                 return render_to_response('question.html', c)
 
