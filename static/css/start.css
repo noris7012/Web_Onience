@@ -13,9 +13,12 @@
 
 #start {
     margin-top: 85px;
+    margin-left: 70px;
     font-family: 'Nanum Barun Gothic', sans-serif;
     font-weight: 400;
     font-size: 34px;
+
+    text-align: left;
 }
 
 #name {
