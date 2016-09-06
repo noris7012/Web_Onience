@@ -9,9 +9,18 @@ body {
 }
 
 .main-page {
-    width: 640px;
-    height: 800px;
+    max-width: 640px;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
+}
+
+@media screen and (max-width: 640px){
+    .main-page {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
 }

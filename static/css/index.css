@@ -2,14 +2,22 @@ body {
     background-color: #147496;
 }
 
+.main-page {
+    text-align: center;
+}
+
 #title {
-    margin-top: 115px;
+    margin-top: 11%;
 }
 
 #img {
-    margin-top: 190px;
+    margin-top: 18%;
 }
 
 #btn {
-    margin-top: 60px;
+    margin-top: 6%;
+}
+
+.main-page img {
+    max-width:100%; height:auto;
 }
