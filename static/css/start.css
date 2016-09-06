@@ -12,12 +12,6 @@
     font-size: 35pt;
 }
 
-@media screen and (max-width: 640px){
-    #title {
-        font-size: 5.47vw;
-    }
-}
-
 #start {
     max-width: 500px;
     margin-top: 8.3%;
@@ -25,27 +19,41 @@
     margin-right: auto;
     font-family: 'Nanum Barun Gothic', sans-serif;
     font-weight: 400;
-    font-size: 2.8em;
+    font-size: 34pt;
 }
 
 #name {
     width: 76%;
-    height: 70px;
+    height: 10.94%;
 
-    margin-left: 25px;
+    margin-left: 3.9%;
 
     font-family: 'Nanum Barun Gothic', sans-serif;
     font-weight: 300;
-    font-size: 34px;
+    font-size: 34pt;
+}
+
+@media screen and (max-width: 640px){
+    #title {
+        font-size: 5.47vw;
+    }
+
+    #start {
+        font-size: 5.31vw;
+    }
+
+    #name {
+        font-size: 5.31vw;
+    }
 }
 
 #divparty {
     text-align: left;
-    margin-top: 60px;
+    margin-top: 9.37%;
 }
 
 #divbtns {
-    margin-top: 25px;
+    margin-top: 3.9%;
 }
 
 .choice {
