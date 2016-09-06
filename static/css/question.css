@@ -28,16 +28,6 @@
     text-align: left;
 }
 
-@media screen and (max-width: 640px){
-    #title {
-        font-size: 5.47vw;
-    }
-
-    #clist {
-        font-size: 5.31vw;
-    }
-}
-
 .choice{
     margin-left: 1.56%;
     cursor: pointer;
@@ -55,7 +45,7 @@ i {
     position: absolute;
 }
 /* RADIO & CHECKBOX STYLES */
-.choice > i{     /* DEFAULT <i> STYLE */
+.choice > i {     /* DEFAULT <i> STYLE */
     display: inline-block;
     vertical-align: middle;
     width:  21px;
@@ -66,17 +56,36 @@ i {
     border: 2px solid #74BBB5;
     background: #74BBB5;
 }
+
+@media screen and (max-width: 640px){
+    #title {
+        font-size: 5.47vw;
+    }
+
+    #clist {
+        font-size: 5.31vw;
+    }
+
+    .choice > i {
+        width: 3.28vw;
+        height: 3.28vw;
+        box-shadow: inset 0 0 0 1.875vw #fff;
+        border: 0.3125vw solid #74BBB5;
+    }
+}
+
 .choice > input:checked + i{ /* (RADIO CHECKED) <i> STYLE */
     box-shadow: inset 0 0 0 4px #fff;
     background: #74BBB5;
 }
 
 .border {
-    margin-top: 25px;
-    margin-bottom: 20px;
+    margin-top: 3.9%;
+    margin-bottom: 3.125%;
 }
 
 #btn {
-    margin-top: 90px;
+    margin-top: 14.06%;
+    width: 47%;
     cursor: pointer;
 }
