@@ -6,11 +6,21 @@
     text-align: left;
 }
 
+#rank1 {
+    float: left;
+    width: 50%;
+}
+
+#rank2 {
+    width: 50%;
+}
+
 #back {
     vertical-align: middle;
-    margin-left: 25px;
-    margin-top: 25px;
+    margin-left: 3.9%;
+    margin-top: 3.9%;
     float: left;
+    width: 2.97%;
 }
 
 #result {
@@ -18,7 +28,41 @@
     font-weight: 300;
     font-size: 35px;
     color: white;
-    width: 350px;
-    margin-top: 25px;
+    width: 54.69%;
+    margin-top: 3.9%;
     float: right;
+}
+
+#candidate {
+    height: 750px;
+}
+
+#table {
+    width: 100%;
+}
+
+#head {
+    height: 80px;
+}
+
+.border {
+    width: 100%;
+}
+
+@media screen and (max-width: 640px){
+    #title {
+        height: 12.5vw;
+    }
+
+    #result {
+        font-size: 5.47vw;
+    }
+
+    #candidate {
+        height: 117.1875vw;
+    }
+
+    #head {
+        height: 12.5vw;
+    }
 }
