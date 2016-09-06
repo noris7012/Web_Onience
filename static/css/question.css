@@ -60,3 +60,8 @@ i {
     margin-top: 25px;
     margin-bottom: 20px;
 }
+
+#btn {
+    margin-top: 90px;
+    cursor: pointer;
+}

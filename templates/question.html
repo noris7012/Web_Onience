@@ -14,13 +14,16 @@
     <script type="text/javascript" src="{% static "js/jquery-3.1.0.min.js" %}" ></script>
 
     <script type="text/javascript">
-        $(function(){
-            $(".choice").click(function(){
-                $("#amount").attr("value", $(this).attr("value"))
+        function clickBtn() {
+            amount = $('input[name=amount]:checked', '#formChoice').val();
 
-                //$("#formChoice").submit();
-            });
-        });
+            if (amount === undefined) {
+                alert("선택지를 선택해주세요.");
+                return;
+            }
+
+            $("#formChoice").submit();
+        }
     </script>
 </head>
 <body>
@@ -33,47 +36,48 @@
             {{ question.0 }}
         </div>
 
-        <div id="clist">
-            <label class="choice">
-                <input type="radio" name="choice" value="{{ question.1 }}" />
-                <i></i> {{ question.2 }}
-            </label>
-
-            <img class="border" src="/static/img/question/boder.png" />
-
-            <label class="choice">
-                <input type="radio" name="choice" value="{{ question.3 }}" />
-                <i></i> {{ question.4 }}
-            </label>
-
-            <img class="border" src="/static/img/question/boder.png" />
-
-            <label class="choice">
-                <input type="radio" name="choice" value="{{ question.5 }}" />
-                <i></i> {{ question.6 }}
-            </label>
-
-            <img class="border" src="/static/img/question/boder.png" />
-
-            <label class="choice">
-                <input type="radio" name="choice" value="{{ question.7 }}" />
-                <i></i> {{ question.8 }}
-            </label>
-
-            <img class="border" src="/static/img/question/boder.png" />
-
-            <label class="choice">
-                <input type="radio" name="choice" value="{{ question.9 }}" />
-                <i></i> {{ question.10 }}
-            </label>
-        </div>
-
         <form id="formChoice" method="post">
             {% csrf_token %}
-            <input name="step" type="hidden" value="{{ level }}" />
 
+            <div id="clist">
+                <label class="choice">
+                    <input type="radio" name="amount" value="{{ question.1 }}" />
+                    <i></i> {{ question.2 }}
+                </label>
+
+                <img class="border" src="/static/img/question/boder.png" />
+
+                <label class="choice">
+                    <input type="radio" name="amount" value="{{ question.3 }}" />
+                    <i></i> {{ question.4 }}
+                </label>
+
+                <img class="border" src="/static/img/question/boder.png" />
+
+                <label class="choice">
+                    <input type="radio" name="amount" value="{{ question.5 }}" />
+                    <i></i> {{ question.6 }}
+                </label>
+
+                <img class="border" src="/static/img/question/boder.png" />
+
+                <label class="choice">
+                    <input type="radio" name="amount" value="{{ question.7 }}" />
+                    <i></i> {{ question.8 }}
+                </label>
+
+                <img class="border" src="/static/img/question/boder.png" />
+
+                <label class="choice">
+                    <input type="radio" name="amount" value="{{ question.9 }}" />
+                    <i></i> {{ question.10 }}
+                </label>
+            </div>
+
+            <img id="btn" src="/static/img/question/Q_btn.png" onclick="clickBtn()"/>
+
+            <input name="step" type="hidden" value="{{ level }}" />
             <input name="level" type="hidden" value="{{ level }}" />
-            <input id="amount" name="amount" type="hidden" value="0" />
         </form>
     </div>
 </div>
