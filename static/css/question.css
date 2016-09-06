@@ -14,28 +14,32 @@
     margin-left: 15.625%;
 }
 
-@media screen and (max-width: 640px){
-    #title {
-        font-size: 5.47vw;
-    }
-}
-
 #qicon {
     vertical-align:middle;
     width: 8.64%;
 }
 
 #clist {
-    margin-top: 135px;
-    margin-left: 45px;
+    margin-top: 21.09%;
+    margin-left: 7.03%;
     font-family: 'Nanum Barun Gothic', sans-serif;
     font-weight: 400;
     font-size: 34px;
     text-align: left;
 }
 
+@media screen and (max-width: 640px){
+    #title {
+        font-size: 5.47vw;
+    }
+
+    #clist {
+        font-size: 5.31vw;
+    }
+}
+
 .choice{
-    margin-left: 10px;
+    margin-left: 1.56%;
     cursor: pointer;
     user-select: none;
     -webkit-user-select: none;
@@ -43,7 +47,7 @@
 }
 
 i {
-    margin-right: 15px;
+    margin-right: 2.34%;
 }
 
 .choice > input{ /* HIDE ORG RADIO & CHECKBOX */
