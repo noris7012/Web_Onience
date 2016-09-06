@@ -69,6 +69,7 @@ i {
     .choice > i {
         width: 3.28vw;
         height: 3.28vw;
+        border-radius: 1.69vw;
         box-shadow: inset 0 0 0 1.875vw #fff;
         border: 0.3125vw solid #74BBB5;
     }
