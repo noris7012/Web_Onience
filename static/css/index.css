@@ -8,14 +8,17 @@ body {
 
 #title {
     margin-top: 11%;
+    width: 65%;
 }
 
 #img {
     margin-top: 18%;
+    width: 75%;
 }
 
 #btn {
     margin-top: 6%;
+    width: 45.5%;
 }
 
 .main-page img {
