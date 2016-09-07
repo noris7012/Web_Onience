@@ -5,19 +5,20 @@ from django.template.context_processors import csrf
 import csv
 
 N = 3
+P = 5
 
 title = ['', '문자', '로고송', '다과']
 
 rc = [[]]
-rp = [[]]
 
 rchead = [[]]
 rcfoot = [[]]
 rcaver = [[]]
 
-rphead = [[]]
-rpfoot = [[]]
-rpaver = [[]]
+rp = {}
+rphead = {}
+rpfoot = {}
+rpaver = {}
 
 question = [[]]
 
@@ -52,42 +53,44 @@ for i in range(1, N + 1):
     f.close()
 
 for i in range(1, N + 1):
-    f = open('csv/rp' + str(i) + '.csv', 'r')
-    csvReader = csv.reader(f)
+    for j in range(1, P + 1):
+        key = str(i) + str(j)
 
-    lst = []
-    rp.append(lst)
+        f = open('csv/rp' + key + '.csv', 'r')
+        csvReader = csv.reader(f)
 
-    head = []
-    rphead.append(head)
+        lst = []
+        rp[key] = lst
 
-    foot = []
-    rpfoot.append(foot)
+        head = []
+        rphead[key] = head
 
-    j = 0
-    sum = 0
-    for row in csvReader:
-        if j < 3:
-            head.append(row)
+        foot = []
+        rpfoot[key] = foot
 
-        lst.append(row)
-        sum += int(row[2])
-        j += 1
+        k = 0
+        sum = 0
+        for row in csvReader:
+            row.append(str(j))
+            if k < 3:
+                head.append(row)
 
-    for k in range(len(lst) - 3, len(lst)):
-        foot.append(lst[k])
+            lst.append(row)
+            sum += int(row[2])
+            k += 1
 
-    rpaver.append(['', '평균', str(sum / len(lst)), '-1'])
+        for k in range(len(lst) - 3, len(lst)):
+            foot.append(lst[k])
 
-    f.close()
+        rpaver[key] = ['', '평균', str(sum / len(lst)), '-1']
+
+        f.close()
 
 f = open('csv/question.csv')
 csvReader = csv.reader(f)
 
 for row in csvReader:
     question.append(row)
-
-print (question)
 
 
 def index(request):
@@ -160,8 +163,9 @@ def start(request):
 
             request.session['result' + str(level)] = ['Q' + str(level) + '.' + title[level], str(rank), str(amount)]
 
-            rplst = rp[level]
-            lst = rphead[level] + [rpaver[level]]
+            key = str(level) + party
+            rplst = rp[key]
+            lst = rphead[key] + [rpaver[key]]
             for i in range(0, len(rplst)):
                 if i == 0 and amount > get_amount(rplst[i]):
                     lst += [['나', name, str(amount), party, True], add_rank(rplst[0])]
@@ -173,7 +177,7 @@ def start(request):
                 if get_amount(rplst[i]) >= amount > get_amount(rplst[i+1]):
                     lst += [del_rank(rplst[i]), ['나', name, str(amount), party, True], add_rank(rplst[i+1])]
                     break
-            lst += rpfoot[level]
+            lst += rpfoot[key]
             c['party'] = lst
             return render_to_response('ranking.html', c)
         else:
