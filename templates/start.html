@@ -16,15 +16,37 @@
     <script type="text/javascript" src="{% static "js/jquery-3.1.0.min.js" %}" ></script>
     <script type="text/javascript">
         function clickParty(party) {
-            if ($("#name").val() == '') {
-                alert("이름을 입력해주세요.");
-                return;
+            befo = $("#party").val();
+            if (befo != '') {
+                $("#choice" + befo).attr('src', '/static/img/start/p2_btn' + befo + '.png');
             }
 
-            $("#party").val(party);
+            if (befo != party) {
+                $("#choice" + party).attr('src', '/static/img/start/p2_btn' + party + '_dim.png');
+                $("#party").val(party);
+            }
+            else {
+                $("#party").val('');
+            }
+        }
 
+        function clickNext() {
             $("#start").submit();
         }
+
+        $(function () {
+            $("#start").submit(function (event) {
+                if ($("#name").val() == '') {
+                    alert("이름을 입력해주세요.");
+                    return false;
+                }
+
+                if ($("#party").val() == '') {
+                    alert("정당을 선택해주세요.");
+                    return false;
+                }
+            });
+        });
     </script>
 </head>
 
@@ -50,17 +72,24 @@
             <div id="divparty">
                 정당 선택
                 <div id="divbtns">
-                    <img class="choice" src="{% static "img/start/p2_btn1.png" %}" onclick="clickParty(1)"/>
+                    <img id="choice1" class="choice" src="{% static "img/start/p2_btn1.png" %}" onclick="clickParty(1)"/>
+                    <img src="/static/img/start/p2_btn1_dim.png" style="display: none"/>
                     <br>
-                    <img class="choice" src="{% static "img/start/p2_btn2.png" %}" onclick="clickParty(2)"/>
+                    <img id="choice2" class="choice" src="{% static "img/start/p2_btn2.png" %}" onclick="clickParty(2)"/>
+                    <img src="/static/img/start/p2_btn2_dim.png" style="display: none"/>
                     <br>
-                    <img class="choice" src="{% static "img/start/p2_btn3.png" %}" onclick="clickParty(3)"/>
+                    <img id="choice3" class="choice" src="{% static "img/start/p2_btn3.png" %}" onclick="clickParty(3)"/>
+                    <img src="/static/img/start/p2_btn3_dim.png" style="display: none"/>
                     <br>
-                    <img class="choice" src="{% static "img/start/p2_btn4.png" %}" onclick="clickParty(4)"/>
+                    <img id="choice4" class="choice" src="{% static "img/start/p2_btn4.png" %}" onclick="clickParty(4)"/>
+                    <img src="/static/img/start/p2_btn4_dim.png" style="display: none"/>
                     <br>
-                    <img class="choice" src="{% static "img/start/p2_btn5.png" %}" onclick="clickParty(5)"/>
+                    <img id="choice5" class="choice" src="{% static "img/start/p2_btn5.png" %}" onclick="clickParty(5)"/>
+                    <img src="/static/img/start/p2_btn5_dim.png" style="display: none"/>
                 </div>
             </div>
+
+            <img id="nextBtn" src="/static/img/start/next_btn.png" onclick="clickNext()">
         </form>
     </div>
 </div>
