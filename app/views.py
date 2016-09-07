@@ -47,7 +47,7 @@ for i in range(1, N + 1):
     for k in range(len(lst) - 3, len(lst)):
         foot.append(lst[k])
 
-    rcaver.append(['', '평균', str(sum / len(lst))])
+    rcaver.append(['', '평균', str(sum / len(lst)), '-1'])
 
     f.close()
 
@@ -77,7 +77,7 @@ for i in range(1, N + 1):
     for k in range(len(lst) - 3, len(lst)):
         foot.append(lst[k])
 
-    rpaver.append(['', '평균', str(sum / len(lst))])
+    rpaver.append(['', '평균', str(sum / len(lst)), '-1'])
 
     f.close()
 
@@ -95,11 +95,11 @@ def index(request):
 
 
 def add_rank(row):
-    return [str('나+1'), row[1], row[2]]
+    return [str('나+1'), row[1], row[2], row[3]]
 
 
 def del_rank(row):
-    return [str('나-1'), row[1], row[2]]
+    return [str('나-1'), row[1], row[2], row[3]]
 
 
 def get_amount(row):

@@ -87,7 +87,11 @@
                         <td></td>
                         <td></td>
                         <td>{{ row.0 }}</td>
-                        <td>{{ row.1 }}</td>
+                        <td>{{ row.1 }}
+                            {% if row.3 > '0' and row.3 < '6' %}
+                                <img class="partyIcon" src="/static/img/rank_page/icon{{ row.3 }}.png"/>
+                            {% endif %}
+                        </td>
                         <td>{{ row.2|intcomma }}원</td>
                         <td></td>
                         <td></td>
@@ -117,7 +121,11 @@
                         <td></td>
                         <td></td>
                         <td>{{ row.0 }}</td>
-                        <td>{{ row.1 }}</td>
+                        <td>{{ row.1 }}
+                            {% if row.3 > '0' and row.3 < '6' %}
+                                <img class="partyIcon" src="/static/img/rank_page/icon{{ row.3 }}.png"/>
+                            {% endif %}
+                        </td>
                         <td>{{ row.2|intcomma }}원</td>
                         <td></td>
                         <td></td>
