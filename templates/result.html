@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load humanize %}
 
 <!DOCTYPE html>
 <html lang="kr">
@@ -9,53 +10,57 @@
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
 
     <link rel="stylesheet" href="{% static "css/common.css" %}" type="text/css" />
+    <link rel="stylesheet" href="{% static "css/result.css" %}" type="text/css" />'
+
+    <link href='https://cdn.rawgit.com/openhiun/hangul/14c0f6faa2941116bb53001d6a7dcd5e82300c3f/nanumbarungothic.css' rel='stylesheet' type='text/css'>
+
+    <script type="text/javascript" src="{% static "js/jquery-3.1.0.min.js" %}" ></script>
 </head>
 <body>
 <div class="main-container">
     <div class="main-page">
-        <a href="/" class="main-page__logo">
-            <img src="{% static "img/index/title.png" %}" />
-        </a>
+        <div id="title">
+            <img id="back" src="/static/img/rank_page/icon_back.png" onclick="javascript:history.back()"/>
+            <div id="result">결과</div>
+        </div>
 
-        <div>
-            결과
-            <table>
-                <tbody>
-                {% for row in result %}
-                    <tr>
+
+        <table id="table">
+            <thead>
+            <tr>
+                <th></th>
+                <th></th>
+                <th>문제</th>
+                <th>순위</th>
+                <th>답변</th>
+                <th></th>
+            </tr>
+            </thead>
+
+            <tbody>
+            {% for row in result %}
+                <tr>
+                    <td></td>
+                    <td></td>
                     <td>{{ row.0 }}</td>
                     <td>{{ row.1 }}위</td>
-                    <td>{{ row.2 }}</td>
-                    </tr>
-                {% endfor %}
-                </tbody>
-            </table>
+                    <td>{{ row.2|intcomma }}원</td>
+                    <td></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <div id="icons">
+            <img id="icon1" src="/static/img/last_page/btn_kakao.png" />
+            <img id="icon2" src="/static/img/last_page/btn_face.png" />
+            <img id="icon3" src="/static/img/last_page/btn_twitter.png" />
+            <img id="icon4" src="/static/img/last_page/btn_url.png" />
         </div>
 
-        <div>
-            <a href="/start">
-                처음부터
-            </a>
-        </div>
-
-        <div>
-            기사보기
-        </div>
-
-        <div>
-            카카오톡
-        </div>
-
-        <div>
-            페이스북
-        </div>
-
-        <div>
-            트위터
-        </div>
-
-        <div>
-            어니스트
+        <div id="buttons">
+            <a href="/start"><img id="btn1" src="/static/img/last_page/replay_btn.png" /></a>
+            <img id="btn2" src="/static/img/last_page/end_btn.png" />
         </div>
     </div>
 </div>

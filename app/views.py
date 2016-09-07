@@ -158,7 +158,7 @@ def start(request):
             lst += rcfoot[level]
             c['candidate'] = lst
 
-            request.session['result' + str(level)] = [title[level], str(rank), str(amount)]
+            request.session['result' + str(level)] = ['Q' + str(level) + '.' + title[level], str(rank), str(amount)]
 
             rplst = rp[level]
             lst = rphead[level] + [rpaver[level]]
