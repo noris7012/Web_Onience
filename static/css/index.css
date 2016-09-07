@@ -7,20 +7,16 @@ body {
 }
 
 #title {
-    margin-top: 17.2%;
+    margin-top: 10.09vh;
     width: 65%;
 }
 
 #img {
-    margin-top: 27.3%;
+    margin-top: 16.055vh;
     width: 75%;
 }
 
 #btn {
-    margin-top: 9.3%;
+    margin-top: 5.5vh;
     width: 45.5%;
-}
-
-.main-page img {
-    max-width:100%; height:auto;
 }
