@@ -38,49 +38,51 @@
             {{ question.0 }}
         </div>
 
-        <form id="formChoice" method="post">
-            {% csrf_token %}
+        <div id="divForm">
+            <form id="formChoice" method="post">
+                {% csrf_token %}
 
-            <div id="clist">
-                <label class="choice">
-                    <input type="radio" name="amount" value="{{ question.1 }}" />
-                    <i></i> {{ question.2 }}
-                </label>
+                <div id="clist">
+                    <label class="choice">
+                        <input type="radio" name="amount" value="{{ question.1 }}" />
+                        <i></i> {{ question.2 }}
+                    </label>
 
-                <hr class="border" />
+                    <hr class="border" />
 
-                <label class="choice">
-                    <input type="radio" name="amount" value="{{ question.3 }}" />
-                    <i></i> {{ question.4 }}
-                </label>
+                    <label class="choice">
+                        <input type="radio" name="amount" value="{{ question.3 }}" />
+                        <i></i> {{ question.4 }}
+                    </label>
 
-                <hr class="border" />
+                    <hr class="border" />
 
-                <label class="choice">
-                    <input type="radio" name="amount" value="{{ question.5 }}" />
-                    <i></i> {{ question.6 }}
-                </label>
+                    <label class="choice">
+                        <input type="radio" name="amount" value="{{ question.5 }}" />
+                        <i></i> {{ question.6 }}
+                    </label>
 
-                <hr class="border" />
+                    <hr class="border" />
 
-                <label class="choice">
-                    <input type="radio" name="amount" value="{{ question.7 }}" />
-                    <i></i> {{ question.8 }}
-                </label>
+                    <label class="choice">
+                        <input type="radio" name="amount" value="{{ question.7 }}" />
+                        <i></i> {{ question.8 }}
+                    </label>
 
-                <hr class="border" />
+                    <hr class="border" />
 
-                <label class="choice">
-                    <input type="radio" name="amount" value="{{ question.9 }}" />
-                    <i></i> {{ question.10 }}
-                </label>
-            </div>
+                    <label class="choice">
+                        <input type="radio" name="amount" value="{{ question.9 }}" />
+                        <i></i> {{ question.10 }}
+                    </label>
+                </div>
 
-            <img id="btn" src="/static/img/question/Q_btn.png" onclick="clickBtn()"/>
+                <img id="btn" src="/static/img/question/Q_btn.png" onclick="clickBtn()"/>
 
-            <input name="step" type="hidden" value="{{ level }}" />
-            <input name="level" type="hidden" value="{{ level }}" />
-        </form>
+                <input name="step" type="hidden" value="{{ level }}" />
+                <input name="level" type="hidden" value="{{ level }}" />
+            </form>
+        </div>
     </div>
 </div>
 </body>

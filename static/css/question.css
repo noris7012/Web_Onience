@@ -19,8 +19,14 @@
     width: 8.64%;
 }
 
+#divForm {
+    width: 85.9375%;
+    text-align: center;
+    display: inline-block;
+    margin-top: 21.875%;
+}
+
 #clist {
-    margin-top: 21.09%;
     margin-left: auto;
     margin-right: auto;
     font-family: 'Nanum Barun Gothic', sans-serif;
