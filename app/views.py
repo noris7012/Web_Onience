@@ -133,6 +133,7 @@ def start(request):
         level = int(request.POST['level'])
         amount = int(request.POST.get('amount', -1))
         name = request.session['name']
+        party = str(request.session['party'])
 
         if amount > 0:
             c['level'] = step
@@ -143,16 +144,16 @@ def start(request):
             for i in range(0, len(rclst)):
                 if i == 0 and amount > get_amount(rclst[i]):
                     rank = i+1
-                    lst += [['나', name, str(amount)], add_rank(rclst[0])]
+                    lst += [['나', name, str(amount), party, True], add_rank(rclst[0])]
                     break
                 elif i == len(rclst) - 1:
                     rank = i+1
-                    lst += [del_rank(rclst[i]), ['나', name, str(amount)]]
+                    lst += [del_rank(rclst[i]), ['나', name, str(amount), party, True]]
                     break
 
                 if get_amount(rclst[i]) >= amount > get_amount(rclst[i+1]):
                     rank = i+2
-                    lst += [del_rank(rclst[i]), ['나', name, str(amount)], add_rank(rclst[i+1])]
+                    lst += [del_rank(rclst[i]), ['나', name, str(amount), party, True], add_rank(rclst[i+1])]
                     break
             lst += rcfoot[level]
             c['candidate'] = lst
@@ -163,14 +164,14 @@ def start(request):
             lst = rphead[level] + [rpaver[level]]
             for i in range(0, len(rplst)):
                 if i == 0 and amount > get_amount(rplst[i]):
-                    lst += [['나', name, str(amount)], add_rank(rplst[0])]
+                    lst += [['나', name, str(amount), party, True], add_rank(rplst[0])]
                     break
                 elif i == len(rplst) - 1:
-                    lst += [del_rank(rplst[0]), ['나', name, str(amount)]]
+                    lst += [del_rank(rplst[0]), ['나', name, str(amount)], party, True]
                     break
 
                 if get_amount(rplst[i]) >= amount > get_amount(rplst[i+1]):
-                    lst += [del_rank(rplst[i]), ['나', name, str(amount)], add_rank(rplst[i+1])]
+                    lst += [del_rank(rplst[i]), ['나', name, str(amount), party, True], add_rank(rplst[i+1])]
                     break
             lst += rpfoot[level]
             c['party'] = lst

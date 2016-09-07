@@ -173,6 +173,7 @@
 
 #table td:nth-of-type(1) {
     width: 2.3%;
+    background-color: white !important;
 }
 #table td:nth-of-type(2) {
     width: 7%;
@@ -199,6 +200,7 @@
 }
 #table td:nth-of-type(7) {
     width: 2.3%;
+    background-color: white !important;
 }
 
 #nextImg {
@@ -211,4 +213,20 @@
     vertical-align: top;
     margin-left: 9.375%;
     width: 15.625%;
+}
+
+.average {
+    background-color: #e3f1f0;
+}
+
+.average td:nth-of-type(4) {
+    text-align: center !important;
+}
+
+.average td:nth-of-type(5) {
+    text-align: left !important;
+}
+
+.me {
+    background-color: #efefef;
 }
