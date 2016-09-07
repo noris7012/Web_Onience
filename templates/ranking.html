@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load humanize %}
 
 <!DOCTYPE html>
 <html lang="kr">
@@ -12,80 +13,127 @@
     <link rel="stylesheet" href="{% static "css/ranking.css" %}" type="text/css" />
 
     <link href='https://cdn.rawgit.com/openhiun/hangul/14c0f6faa2941116bb53001d6a7dcd5e82300c3f/nanumbarungothic.css' rel='stylesheet' type='text/css'>
+
+    <script type="text/javascript" src="{% static "js/jquery-3.1.0.min.js" %}" ></script>
+
+    <script type="text/javascript">
+        var rank1 = true;
+        function clickRank1() {
+            if (rank1) return;
+
+            $("#candidate").show();
+            $("#party").hide();
+
+            $("#rank1").removeClass("clickable");
+            $("#rank2").addClass("clickable");
+
+            $("#rank1").attr("src", "/static/img/rank_page/rank1_on.png");
+            $("#rank2").attr("src", "/static/img/rank_page/rank2_dim.png");
+
+            rank1 = true
+        }
+
+        function clickRank2() {
+            if (!rank1) return;
+
+            $("#candidate").hide();
+            $("#party").show();
+
+            $("#rank1").addClass("clickable");
+            $("#rank2").removeClass("clickable");
+
+            $("#rank1").attr("src", "/static/img/rank_page/rank1_dim.png");
+            $("#rank2").attr("src", "/static/img/rank_page/rank2_on.png");
+
+            rank1 = false;
+        }
+
+        function clickNext() {
+            $("#formNext").submit();
+        }
+    </script>
 </head>
 <body>
 <div class="main-container">
-    <div class="main-page">
+    <div id="main-div" class="main-page">
         <div id="title">
-            <img id="back" src="/static/img/rank_page/icon_back.png" />
+            <img id="back" src="/static/img/rank_page/icon_back.png" onclick="javascript:history.back()"/>
             <div id="result">결과</div>
         </div>
 
-        <img id="rank1" src="/static/img/rank_page/rank1_on.png" />
-        <img id="rank2" src="/static/img/rank_page/rank2_dim.png" />
+        <img id="rank1" src="/static/img/rank_page/rank1_on.png" onclick="clickRank1()"/>
+        <img id="rank2" class="clickable" src="/static/img/rank_page/rank2_dim.png" onclick="clickRank2()"/>
+
+        <img src="/static/img/rank_page/rank1_dim.png" style="display: none"/>
+        <img src="/static/img/rank_page/rank2_on.png" style="display: none"/>
 
         <div id="candidate">
             <table id="table">
                 <thead>
-                    <tr id="head">
-                        <td>순위</td>
-                        <td>이름</td>
-                        <td>금액</td>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th>순위</th>
+                        <th>이름</th>
+                        <th>금액</th>
+                        <th></th>
+                        <th></th>
                     </tr>
-
-                    <img class="border" src="/static/img/question/boder.png" />
                 </thead>
 
                 <tbody>
                 {% for row in candidate %}
                     <tr>
+                        <td></td>
+                        <td></td>
                         <td>{{ row.0 }}</td>
                         <td>{{ row.1 }}</td>
-                        <td>{{ row.2 }}</td>
+                        <td>{{ row.2|intcomma }}원</td>
+                        <td></td>
+                        <td></td>
                     </tr>
                 {% endfor %}
                 </tbody>
             </table>
         </div>
 
-        <div id="party">
-            <table>
+        <div id="party" style="display: none;">
+            <table id="table">
                 <thead>
                 <tr>
+                    <th></th>
+                    <th></th>
                     <th>순위</th>
                     <th>이름</th>
                     <th>금액</th>
+                    <th></th>
+                    <th></th>
                 </tr>
                 </thead>
 
                 <tbody>
                 {% for row in party %}
                     <tr>
+                        <td></td>
+                        <td></td>
                         <td>{{ row.0 }}</td>
                         <td>{{ row.1 }}</td>
-                        <td>{{ row.2 }}</td>
+                        <td>{{ row.2|intcomma }}원</td>
+                        <td></td>
+                        <td></td>
                     </tr>
                 {% endfor %}
                 </tbody>
             </table>
         </div>
 
-        <div>
-            <a href="javascript:history.back()">
-                돌아가기
-            </a>
-        </div>
+        <img id="nextImg" src="/static/img/rank_page/next_btn.png" onclick="clickNext()"/>
 
-        <div>
-            <form method="post">
-                {% csrf_token %}
-                <input name="step" type="hidden" value="{{ level }}" />
-
-                <input name="level" type="hidden" value="{{ level }}" />
-
-                <button type="submit" value="submit">다음질문</button>
-            </form>
-        </div>
+        <form id="formNext" method="post">
+            {% csrf_token %}
+            <input name="step" type="hidden" value="{{ level }}" />
+            <input name="level" type="hidden" value="{{ level }}" />
+        </form>
     </div>
 </div>
 
