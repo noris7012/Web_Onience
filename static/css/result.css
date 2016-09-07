@@ -45,64 +45,12 @@
     height: 80px;
     vertical-align: bottom;
     font-weight: inherit;
+    padding: 0px;
 }
 
 #table td {
-    height: 60px;
-}
-
-@media screen and (max-width: 640px){
-    #title {
-        height: 12.5vw;
-    }
-
-    #result {
-        font-size: 5.47vw;
-    }
-
-    #table {
-        font-size: 3.91vw;
-    }
-
-    #table th {
-        height: 12.5vw;
-    }
-
-    #table td {
-        height: 9.375vw;
-    }
-
-    #table th:nth-of-type(2) {
-        border-bottom: 0.47vw solid #74BBB5;
-    }
-    #table th:nth-of-type(3) {
-        border-bottom: 0.47vw solid #74BBB5;
-        text-align: left;
-    }
-    #table th:nth-of-type(4) {
-        border-bottom: 0.47vw solid #74BBB5;
-        text-align: center;
-    }
-    #table th:nth-of-type(5) {
-        border-bottom: 0.47vw solid #74BBB5;
-        text-align: center;
-    }
-
-    #table td:nth-of-type(2) {
-        border-bottom: 0.31vw solid #C9C9C9;
-    }
-    #table td:nth-of-type(3) {
-        border-bottom: 0.31vw solid #C9C9C9;
-        text-align: left;
-    }
-    #table td:nth-of-type(4) {
-        border-bottom: 0.31vw solid #C9C9C9;
-        text-align: center;
-    }
-    #table td:nth-of-type(5) {
-        border-bottom: 0.31vw solid #C9C9C9;
-        text-align: center;
-    }
+    height: 58px;
+    padding: 0px;
 }
 
 #table th:nth-of-type(1) {
@@ -158,6 +106,60 @@
 #table td:nth-of-type(6) {
     width: 2.3%;
     background-color: white !important;
+}
+
+@media screen and (max-width: 640px){
+    #title {
+        height: 12.5vw;
+    }
+
+    #result {
+        font-size: 5.47vw;
+    }
+
+    #table {
+        font-size: 3.91vw;
+    }
+
+    #table th {
+        height: 12.5vw;
+    }
+
+    #table td {
+        height: 9.0625vw;
+    }
+
+    #table th:nth-of-type(2) {
+        border-bottom: 0.47vw solid #74BBB5;
+    }
+    #table th:nth-of-type(3) {
+        border-bottom: 0.47vw solid #74BBB5;
+        text-align: left;
+    }
+    #table th:nth-of-type(4) {
+        border-bottom: 0.47vw solid #74BBB5;
+        text-align: center;
+    }
+    #table th:nth-of-type(5) {
+        border-bottom: 0.47vw solid #74BBB5;
+        text-align: center;
+    }
+
+    #table td:nth-of-type(2) {
+        border-bottom: 0.31vw solid #C9C9C9;
+    }
+    #table td:nth-of-type(3) {
+        border-bottom: 0.31vw solid #C9C9C9;
+        text-align: left;
+    }
+    #table td:nth-of-type(4) {
+        border-bottom: 0.31vw solid #C9C9C9;
+        text-align: center;
+    }
+    #table td:nth-of-type(5) {
+        border-bottom: 0.31vw solid #C9C9C9;
+        text-align: center;
+    }
 }
 
 #icons {
