@@ -20,10 +20,11 @@
     font-family: 'Nanum Barun Gothic', sans-serif;
     font-weight: 400;
     font-size: 34px;
+    width: 78.125%;
 }
 
 #name {
-    width: 76%;
+    width: 74%;
     height: 10.94%;
 
     margin-left: 3.9%;
