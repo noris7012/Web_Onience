@@ -14,6 +14,8 @@
 
     <link href='/static/css/font.css' rel='stylesheet' type='text/css'>
 
+    <link rel="shortcut icon" type="image/jpg" href="/static/img/logo.jpg"/>
+
     <script type="text/javascript" src="{% static "js/jquery-3.1.0.min.js" %}" ></script>
     <script src="/static/js/kakao.min.js"></script>
 
@@ -75,17 +77,29 @@
     Kakao.Link.createTalkLinkButton({
         container: '#kakao-link-btn',
         label: '당신이 국회의원에 나간다면 얼마를 쓸까?',
+        image: {
+            src: 'http://www.alayer.com:8000/static/img/kakao/thumb1.png'
+        },
         webButton: {
-            text: '보러가기',
+            text: '출마하러 가기',
             url: 'http://www.alslayer.com:8000' // 앱 설정의 웹 플랫폼에 등록한 도메인의 URL이어야 합니다.
+        },
+        fail: function () {
+            alert('카카오톡 설치 후 실행해주세요');
         }
     });
     Kakao.Link.createTalkLinkButton({
         container: '#kakao-link-btn2',
         label: '당신이 국회의원에 나간다면 얼마를 쓸까?',
+        image: {
+            src: 'http://www.alayer.com:8000/static/img/kakao/thumb2.png'
+        },
         webLink: {
-            text: '보러가기',
+            text: '출마하러 가기',
             url: 'http://www.alslayer.com:8000' // 앱 설정의 웹 플랫폼에 등록한 도메인의 URL이어야 합니다.
+        },
+        fail: function () {
+            alert('카카오톡 설치 후 실행해주세요');
         }
     });
     //]]>
