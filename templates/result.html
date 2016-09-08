@@ -15,6 +15,8 @@
     <link href='/static/css/font.css' rel='stylesheet' type='text/css'>
 
     <script type="text/javascript" src="{% static "js/jquery-3.1.0.min.js" %}" ></script>
+    <script src="/static/js/kakao.min.js"></script>
+
 </head>
 <body>
 <div class="main-container">
@@ -52,7 +54,7 @@
         </table>
 
         <div id="icons">
-            <img id="icon1" src="/static/img/last_page/btn_kakao.png" />
+            <a id="kakao-link-btn" href="javascript;:"><img id="icon1" src="/static/img/last_page/btn_kakao.png"/></a>
             <img id="icon2" src="/static/img/last_page/btn_face.png" />
             <img id="icon3" src="/static/img/last_page/btn_twitter.png" />
             <img id="icon4" src="/static/img/last_page/btn_url.png" />
@@ -64,5 +66,25 @@
         </div>
     </div>
 </div>
+<script type='text/javascript'>
+    //<![CDATA[
+    // // 사용할 앱의 JavaScript 키를 설정해 주세요.
+    Kakao.init('a3585b266d99aca9a092ce2f1bdad6c8');
+    // // 카카오톡 링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
+    Kakao.Link.createTalkLinkButton({
+        container: '#kakao-link-btn',
+        label: '카카오링크 샘플에 오신 것을 환영합니다.',
+        image: {
+            src: 'http://dn.api1.kage.kakao.co.kr/14/dn/btqaWmFftyx/tBbQPH764Maw2R6IBhXd6K/o.jpg',
+            width: '300',
+            height: '200'
+        },
+        webButton: {
+            text: '카카오 디벨로퍼스',
+            url: 'http://www.alslayer.com:8000' // 앱 설정의 웹 플랫폼에 등록한 도메인의 URL이어야 합니다.
+        }
+    });
+    //]]>
+</script>
 </body>
 </html>
