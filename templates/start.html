@@ -16,17 +16,25 @@
     <script type="text/javascript" src="{% static "js/jquery-3.1.0.min.js" %}" ></script>
     <script type="text/javascript">
         function clickParty(party) {
-            befo = $("#party").val();
-            if (befo != '') {
-                $("#choice" + befo).attr('src', '/static/img/start/p2_btn' + befo + '.png');
-            }
+            elem = $("#party");
+            befo = elem.val();
+            if (befo == party) {
+                for (var i = 1; i <=5; ++i) {
+                    $("#choice" + i).attr('src', '/static/img/start/p2_btn' + i + '.png');
+                }
 
-            if (befo != party) {
-                $("#choice" + party).attr('src', '/static/img/start/p2_btn' + party + '_dim.png');
-                $("#party").val(party);
-            }
-            else {
-                $("#party").val('');
+                elem.val('');
+            } else {
+                for (var i = 1; i <=5; ++i) {
+                    if (i == party)
+                            continue;
+
+                    $("#choice" + i).attr('src', '/static/img/start/p2_btn' + i + '_dim.png');
+                }
+
+                $("#choice" + party).attr('src', '/static/img/start/p2_btn' + party + '.png');
+
+                elem.val(party);
             }
         }
 
