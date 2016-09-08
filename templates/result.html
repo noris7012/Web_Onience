@@ -67,7 +67,6 @@
 
         <div id="icons">
             <a id="kakao-link-btn" href="javascript:;"><img id="icon1" src="/static/img/last_page/btn_kakao.png"/></a>
-            <a id="kakao-link-btn2" href="javascript:;"><img id="icon1" src="/static/img/last_page/btn_kakao.png"/></a>
             <img id="icon2" src="/static/img/last_page/btn_face.png" onclick="clickFace()"/>
             <img id="icon3" src="/static/img/last_page/btn_twitter.png" onclick="clickTwitter()"/>
             <img id="icon4" src="/static/img/last_page/btn_url.png" />
@@ -91,27 +90,6 @@
             src: 'http://www.alslayer.com:8000/static/img/kakao/thumb3.png',
             width: '738',
             height: '313'
-        },
-{#        image: {#}
-{#            src: 'http://www.alslayer.com:8000/static/img/kakao/thumb1.png',#}
-{#            width: '633',#}
-{#            height: '687'#}
-{#        },#}
-        webButton: {
-            text: '출마하러 가기',
-            url: 'http://www.alslayer.com:8000' // 앱 설정의 웹 플랫폼에 등록한 도메인의 URL이어야 합니다.
-        },
-        fail: function () {
-            alert('카카오톡 설치 후 실행해주세요');
-        }
-    });
-    Kakao.Link.createTalkLinkButton({
-        container: '#kakao-link-btn2',
-        label: '당신이 국회의원에 나간다면 얼마를 쓸까?',
-        image: {
-            src: 'http://www.alslayer.com:8000/static/img/kakao/thumb2.png',
-            width: '529',
-            height: '298'
         },
         webButton: {
             text: '출마하러 가기',
