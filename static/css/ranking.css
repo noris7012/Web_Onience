@@ -9,10 +9,12 @@
 #rank1 {
     float: left;
     width: 50%;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 #rank2 {
     width: 50%;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 #back {
