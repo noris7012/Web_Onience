@@ -214,7 +214,7 @@ def start(request):
 
             rank = 0
             rclst = rc[level]
-            lst = rchead[level]
+            lst = list(rchead[level])
             for i in range(0, len(rclst)):
                 if i == 0 and amount > get_amount(rclst[i]):
                     rank = i + 1
@@ -262,6 +262,7 @@ def start(request):
             lst += rpfoot[key]
             lst = make_list(lst, rpaver[key], me, rank)
 
+            c['question'] = question[step]
             c['party'] = lst
             return render_to_response('ranking.html', c)
         else:

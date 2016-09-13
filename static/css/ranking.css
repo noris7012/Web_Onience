@@ -138,6 +138,20 @@
     background-color: white !important;
 }
 
+#comment {
+    font-family: 'Nanum Barun Gothic', sans-serif;
+    font-weight: 400;
+    font-size: 17.53px;
+    color: #808285;
+
+    padding-top: 2.82%;
+    padding-right: 2.3%;
+    float: right;
+    width: 80%;
+    height: 63.75px;
+    text-align: right;
+}
+
 @media screen and (max-width: 510px){
     #title {
         height: 12.5vw;
@@ -205,10 +219,14 @@
         width: 12.5%;
         border-bottom: 0.31vw solid #C9C9C9;
     }
+
+    #comment {
+        height: 12.5vw;
+        font-size: 3.44vw;
+    }
 }
 
 #nextImg {
-    margin-top: 12.5%;
     cursor: pointer;
     width: 45.31%;
 }

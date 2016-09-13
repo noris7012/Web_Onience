@@ -41,7 +41,13 @@
             <br>
             {{ question.1 }}
             <div id="comment">
-                {{ question.2 }}
+                {% if question.3 != '' %}
+                    {{ question.2 }}
+                    <br>
+                    {{ question.3 }}
+                {% elif question.2 != '' %}
+                    {{ question.2 }}
+                {% endif %}
             </div>
         </div>
 
@@ -51,36 +57,36 @@
 
                 <div id="clist">
                     <label class="choice">
-                        <input type="radio" name="amount" value="{{ question.3 }}" />
-                        <i></i> {{ question.4 }}
+                        <input type="radio" name="amount" value="{{ question.4 }}" />
+                        <i></i> {{ question.5 }}
                     </label>
 
                     <hr class="border" />
 
                     <label class="choice">
-                        <input type="radio" name="amount" value="{{ question.5 }}" />
-                        <i></i> {{ question.6 }}
+                        <input type="radio" name="amount" value="{{ question.6 }}" />
+                        <i></i> {{ question.7 }}
                     </label>
 
                     <hr class="border" />
 
                     <label class="choice">
-                        <input type="radio" name="amount" value="{{ question.7 }}" />
-                        <i></i> {{ question.8 }}
+                        <input type="radio" name="amount" value="{{ question.8 }}" />
+                        <i></i> {{ question.9 }}
                     </label>
 
                     <hr class="border" />
 
                     <label class="choice">
-                        <input type="radio" name="amount" value="{{ question.9 }}" />
-                        <i></i> {{ question.10 }}
+                        <input type="radio" name="amount" value="{{ question.10 }}" />
+                        <i></i> {{ question.11 }}
                     </label>
 
                     <hr class="border" />
 
                     <label class="choice">
-                        <input type="radio" name="amount" value="{{ question.11 }}" />
-                        <i></i> {{ question.12 }}
+                        <input type="radio" name="amount" value="{{ question.12 }}" />
+                        <i></i> {{ question.13 }}
                     </label>
                 </div>
 
