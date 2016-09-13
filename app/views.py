@@ -115,6 +115,7 @@ for row in csvReader:
 
 print question
 
+
 def index(request):
     return render_to_response('index.html')
 
@@ -122,9 +123,61 @@ def index(request):
 def add_rank(row):
     return [str(int(row[0]) + 1), row[1], row[2], row[3]]
 
+def get_rank(row):
+    return int(row[0])
 
 def get_amount(row):
     return int(row[3])
+
+
+def make_list(lst, aver, me, rank):
+    ret = []
+    # 랭크 중복 제거
+    for row in lst:
+        b = False
+        for r in ret:
+            if get_rank(r) == get_rank(row):
+                b = True
+                break
+        if b:
+            continue
+        ret.append(row)
+
+    # 나 추가
+    for i in range(0, len(ret)):
+        if i == 0 and rank <= get_rank(ret[i]):
+            ret.insert(0, me)
+            break
+        if i == len(ret) - 1:
+            ret.append(me)
+            break
+        if get_rank(ret[i]) < rank <= get_rank(ret[i+1]):
+            ret.insert(i+1, me)
+            break
+
+    # 평균값 추가
+    for i in range(0, len(ret)):
+        if get_amount(ret[i]) >= get_amount(aver) > get_amount(ret[i+1]):
+            ret.insert(i+1, aver)
+            break
+
+    # Rank Up
+    for i in range(0, len(ret)):
+        # Me Pass
+        if len(ret[i]) > 4 and ret[i][4]:
+            continue
+
+        # 평균 Pass
+        if int(ret[i][1]) == -1:
+            continue
+
+        if get_rank(ret[i]) >= rank:
+            temp = list(ret[i])
+            temp[0] = str(int(temp[0])+1)
+            ret[i] = temp
+
+    return ret
+
 
 
 def start(request):
@@ -161,28 +214,26 @@ def start(request):
 
             rank = 0
             rclst = rc[level]
-            lst = list(rchead[level])
+            lst = rchead[level]
             for i in range(0, len(rclst)):
                 if i == 0 and amount > get_amount(rclst[i]):
                     rank = i + 1
-                    lst += [[str(rank), party, name, str(amount), True], add_rank(rclst[0])]
+                    me = [str(rank), party, name, str(amount), True]
+                    lst.append(add_rank(rclst[0]))
                     break
-                elif i == len(rclst) - 1:
-                    rank = i + 1
-                    lst += [rclst[i], [str(rank), party, name, str(amount), True]]
+                elif i == len(rclst) - 1 and get_amount(rplst[i]) >= amount:
+                    rank = i + 2
+                    me = [str(rank), party, name, str(amount), True]
+                    lst.append(rclst[i])
                     break
 
                 if get_amount(rclst[i]) >= amount > get_amount(rclst[i+1]):
                     rank = i + 2
-                    lst += [rclst[i], [str(rank), party, name, str(amount), True], add_rank(rclst[i+1])]
+                    me = [str(rank), party, name, str(amount), True]
+                    lst += [rclst[i], rclst[i+1]]
                     break
             lst += rcfoot[level]
-
-            aver = rcaver[level]
-            for i in range(0, len(lst)):
-                if get_amount(lst[i]) >= get_amount(aver) > get_amount(lst[i+1]):
-                    lst.insert(i+1, aver)
-                    break
+            lst = make_list(lst, rcaver[level], me, rank)
 
             c['candidate'] = lst
 
@@ -193,22 +244,23 @@ def start(request):
             lst = list(rphead[key])
             for i in range(0, len(rplst)):
                 if i == 0 and amount > get_amount(rplst[i]):
-                    lst += [[str(i+1), party, name, str(amount), True], add_rank(rplst[0])]
+                    rank = i+1
+                    me = [str(rank), party, name, str(amount), True]
+                    lst.append(rplst[0])
                     break
-                elif i == len(rplst) - 1:
-                    lst += [rplst[0], [str(i+1), party, name, str(amount), True]]
+                elif i == len(rplst) - 1 and get_amount(rplst[i]) >= amount:
+                    rank = i+2
+                    me = [str(rank), party, name, str(amount), True]
+                    lst.append(rplst[0])
                     break
 
                 if get_amount(rplst[i]) >= amount > get_amount(rplst[i+1]):
-                    lst += [rplst[i], [str(i+2), party, name, str(amount), True], add_rank(rplst[i+1])]
+                    rank = i+2
+                    me = [str(rank), party, name, str(amount), True]
+                    lst += [rplst[i], rplst[i+1]]
                     break
             lst += rpfoot[key]
-
-            aver = rpaver[key]
-            for i in range(0, len(lst)):
-                if get_amount(lst[i]) >= get_amount(aver) > get_amount(lst[i+1]):
-                    lst.insert(i+1, aver)
-                    break
+            lst = make_list(lst, rpaver[key], me, rank)
 
             c['party'] = lst
             return render_to_response('ranking.html', c)
