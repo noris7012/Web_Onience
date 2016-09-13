@@ -193,7 +193,7 @@ def start(request):
             lst = list(rphead[key])
             for i in range(0, len(rplst)):
                 if i == 0 and amount > get_amount(rplst[i]):
-                    lst += [[str(i+1), name, str(amount), party, True], add_rank(rplst[0])]
+                    lst += [[str(i+1), party, name, str(amount), True], add_rank(rplst[0])]
                     break
                 elif i == len(rplst) - 1:
                     lst += [rplst[0], [str(i+1), party, name, str(amount), True]]
