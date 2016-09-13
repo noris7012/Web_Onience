@@ -15,7 +15,7 @@ body {
     margin-right: auto;
 }
 
-@media screen and (max-width: 640px){
+@media screen and (max-width: 510px){
     .main-page {
         text-align: center;
         margin-left: auto;

@@ -6,24 +6,34 @@
 }
 
 #title {
-    margin-top: 11.72%;
+    margin-top: 8.0575%;
     font-family: 'Nanum Barun Gothic', sans-serif;
     font-weight: 300;
-    font-size: 35px;
-    width: 68.75%;
-    margin-left: 15.625%;
+    font-size: 27.89px;
+    width: 100%;
+    text-align: center;
+    height: 175.55px;
 }
 
 #qicon {
     vertical-align:middle;
-    width: 8.64%;
+    width: 5.9375%;
+}
+
+#comment {
+    font-family: 'Nanum Barun Gothic', sans-serif;
+    font-weight: 400;
+    font-size: 19.92px;
+    color: #73bab6;
+    margin-top: 2.38%;
+    width: 66%;
+    display: inline-block;
 }
 
 #divForm {
     width: 85.9375%;
     text-align: center;
     display: inline-block;
-    margin-top: 21.875%;
 }
 
 #clist {
@@ -31,7 +41,7 @@
     margin-right: auto;
     font-family: 'Nanum Barun Gothic', sans-serif;
     font-weight: 400;
-    font-size: 34px;
+    font-size: 27.09px;
     text-align: left;
     width: 95%;
 }
@@ -66,9 +76,14 @@ i {
     background: #74BBB5;
 }
 
-@media screen and (max-width: 640px){
+@media screen and (max-width: 510px){
     #title {
         font-size: 5.47vw;
+        height: 34.31vw;
+    }
+
+    #comment {
+        font-size: 3.90625vw;
     }
 
     #clist {

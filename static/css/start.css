@@ -9,7 +9,7 @@
     margin-top: 5.47%;
     font-family: 'Nanum Barun Gothic', sans-serif;
     font-weight: 300;
-    font-size: 35px;
+    font-size: 27.89px;
 }
 
 #start {
@@ -19,7 +19,7 @@
     margin-right: auto;
     font-family: 'Nanum Barun Gothic', sans-serif;
     font-weight: 400;
-    font-size: 34px;
+    font-size: 27.09px;
     width: 78.125%;
 }
 
@@ -31,12 +31,12 @@
 
     font-family: 'Nanum Barun Gothic', sans-serif;
     font-weight: 300;
-    font-size: 34px;
+    font-size: 27.09px;
     vertical-align: middle;
     padding: 11px;
 }
 
-@media screen and (max-width: 640px){
+@media screen and (max-width: 510px){
     #title {
         font-size: 5.47vw;
     }

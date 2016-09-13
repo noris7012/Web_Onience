@@ -108,7 +108,7 @@ for i in range(1, N + 1):
         rpaver[key] = ['', '-1', '평균', str(sum / len(lst))]
 
 f = open('csv/question.csv')
-csvReader = csv.reader(f, quoting=csv.QUOTE_NONE)
+csvReader = csv.reader(f, quotechar='|')
 
 for row in csvReader:
     question.append(row)
