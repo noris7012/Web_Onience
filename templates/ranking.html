@@ -85,16 +85,16 @@
 
                 <tbody>
                 {% for row in candidate %}
-                    <tr {% if row.3 == '-1' %}class="average"{% endif %} {% if row.4 %}class="me"{% endif %}>
+                    <tr {% if row.1 == '-1' %}class="average"{% endif %} {% if row.4 %}class="me"{% endif %}>
                         <td></td>
                         <td></td>
                         <td>{{ row.0 }}</td>
-                        <td>{{ row.1 }}
-                            {% if row.3 > '0' and row.3 < '6' %}
-                                <img class="partyIcon" src="/static/img/rank_page/icon{{ row.3 }}.png"/>
+                        <td>{{ row.2 }}
+                            {% if row.1 > '0' and row.1 < '6' %}
+                                <img class="partyIcon" src="/static/img/rank_page/icon{{ row.1 }}.png"/>
                             {% endif %}
                         </td>
-                        <td>{{ row.2|intcomma }}원</td>
+                        <td>{{ row.3|intcomma }}원</td>
                         <td></td>
                         <td></td>
                     </tr>
@@ -119,16 +119,16 @@
 
                 <tbody>
                 {% for row in party %}
-                    <tr {% if row.3 == '-1' %}class="average"{% endif %} {% if row.4 %}class="me"{% endif %}>
+                    <tr {% if row.1 == '-1' %}class="average"{% endif %} {% if row.4 %}class="me"{% endif %}>
                         <td></td>
                         <td></td>
                         <td>{{ row.0 }}</td>
-                        <td>{{ row.1 }}
-                            {% if row.3 > '0' and row.3 < '6' %}
-                                <img class="partyIcon" src="/static/img/rank_page/icon{{ row.3 }}.png"/>
+                        <td>{{ row.2 }}
+                            {% if row.1 > '0' and row.1 < '6' %}
+                                <img class="partyIcon" src="/static/img/rank_page/icon{{ row.1 }}.png"/>
                             {% endif %}
                         </td>
-                        <td>{{ row.2|intcomma }}원</td>
+                        <td>{{ row.3|intcomma }}원</td>
                         <td></td>
                         <td></td>
                     </tr>
