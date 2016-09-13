@@ -161,7 +161,7 @@ def start(request):
 
             rank = 0
             rclst = rc[level]
-            lst = rchead[level] + [rcaver[level]]
+            lst = list(rchead[level])
             for i in range(0, len(rclst)):
                 if i == 0 and amount > get_amount(rclst[i]):
                     rank = i + 1
@@ -177,13 +177,20 @@ def start(request):
                     lst += [rclst[i], [str(rank), party, name, str(amount), True], add_rank(rclst[i+1])]
                     break
             lst += rcfoot[level]
+
+            aver = rcaver[level]
+            for i in range(0, len(lst)):
+                if get_amount(lst[i]) >= get_amount(aver) > get_amount(lst[i+1]):
+                    lst.insert(i+1, aver)
+                    break
+
             c['candidate'] = lst
 
             request.session['result' + str(level)] = ['Q' + str(level) + '.' + title[level], str(rank), str(amount)]
 
             key = str(level) + party
             rplst = rp[key]
-            lst = rphead[key] + [rpaver[key]]
+            lst = list(rphead[key])
             for i in range(0, len(rplst)):
                 if i == 0 and amount > get_amount(rplst[i]):
                     lst += [[str(i+1), name, str(amount), party, True], add_rank(rplst[0])]
@@ -196,6 +203,13 @@ def start(request):
                     lst += [rplst[i], [str(i+2), party, name, str(amount), True], add_rank(rplst[i+1])]
                     break
             lst += rpfoot[key]
+
+            aver = rpaver[key]
+            for i in range(0, len(lst)):
+                if get_amount(lst[i]) >= get_amount(aver) > get_amount(lst[i+1]):
+                    lst.insert(i+1, aver)
+                    break
+
             c['party'] = lst
             return render_to_response('ranking.html', c)
         else:
