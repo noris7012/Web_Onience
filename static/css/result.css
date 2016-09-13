@@ -100,7 +100,7 @@
 #table td:nth-of-type(5) {
     width: auto;
     border-bottom: 2px solid #C9C9C9;
-    text-align: center;
+    text-align: right;
 }
 
 #table td:nth-of-type(6) {
