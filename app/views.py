@@ -164,14 +164,17 @@ def start(request):
             lst = rchead[level] + [rcaver[level]]
             for i in range(0, len(rclst)):
                 if i == 0 and amount > get_amount(rclst[i]):
-                    lst += [[str(i+1), party, name, str(amount), True], add_rank(rclst[0])]
+                    rank = i + 1
+                    lst += [[str(rank), party, name, str(amount), True], add_rank(rclst[0])]
                     break
                 elif i == len(rclst) - 1:
-                    lst += [rclst[i], [str(i+1), party, name, str(amount), True]]
+                    rank = i + 1
+                    lst += [rclst[i], [str(rank), party, name, str(amount), True]]
                     break
 
                 if get_amount(rclst[i]) >= amount > get_amount(rclst[i+1]):
-                    lst += [rclst[i], [str(i+2), party, name, str(amount), True], add_rank(rclst[i+1])]
+                    rank = i + 2
+                    lst += [rclst[i], [str(rank), party, name, str(amount), True], add_rank(rclst[i+1])]
                     break
             lst += rcfoot[level]
             c['candidate'] = lst
