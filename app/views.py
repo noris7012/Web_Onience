@@ -221,7 +221,7 @@ def start(request):
                     me = [str(rank), party, name, str(amount), True]
                     lst.append(add_rank(rclst[0]))
                     break
-                elif i == len(rclst) - 1 and get_amount(rplst[i]) >= amount:
+                elif i == len(rclst) - 1 and get_amount(rclst[i]) >= amount:
                     rank = i + 2
                     me = [str(rank), party, name, str(amount), True]
                     lst.append(rclst[i])
@@ -267,8 +267,12 @@ def start(request):
         else:
             if step == N:
                 lst = []
+                sum = 0
                 for i in range(1, N + 1):
                     lst.append(request.session['result' + str(i)])
+                    sum += int(request.session['result' + str(i)][2])
+
+                c['total'] = str(sum)
 
                 c['result'] = lst
 

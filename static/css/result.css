@@ -2,7 +2,7 @@
 
 #title {
     background-color: #74BBB5;
-    height: 80px;
+    height: 63.75px;
     text-align: left;
 }
 
@@ -34,7 +34,7 @@
 
     font-family: 'Nanum Barun Gothic', sans-serif;
     font-weight: 400;
-    font-size: 25px;
+    font-size: 19.92px;
 }
 
 .border {
@@ -42,14 +42,14 @@
 }
 
 #table th {
-    height: 80px;
+    height: 63.75px;
     vertical-align: bottom;
     font-weight: inherit;
     padding: 0px;
 }
 
 #table td {
-    height: 58px;
+    height: 45px;
     padding: 0px;
 }
 
@@ -108,6 +108,26 @@
     background-color: white !important;
 }
 
+#total td {
+    font-weight: 700;
+}
+
+#total td:nth-of-type(2) {
+    border-top: 4px solid #C9C9C9;
+}
+
+#total td:nth-of-type(3) {
+    border-top: 4px solid #C9C9C9;
+}
+
+#total td:nth-of-type(4) {
+    border-top: 4px solid #C9C9C9;
+}
+
+#total td:nth-of-type(5) {
+    border-top: 4px solid #C9C9C9;
+}
+
 @media screen and (max-width: 510px){
     #title {
         height: 12.5vw;
@@ -134,15 +154,12 @@
     }
     #table th:nth-of-type(3) {
         border-bottom: 0.47vw solid #74BBB5;
-        text-align: left;
     }
     #table th:nth-of-type(4) {
         border-bottom: 0.47vw solid #74BBB5;
-        text-align: center;
     }
     #table th:nth-of-type(5) {
         border-bottom: 0.47vw solid #74BBB5;
-        text-align: center;
     }
 
     #table td:nth-of-type(2) {
@@ -150,16 +167,27 @@
     }
     #table td:nth-of-type(3) {
         border-bottom: 0.31vw solid #C9C9C9;
-        text-align: left;
     }
     #table td:nth-of-type(4) {
         border-bottom: 0.31vw solid #C9C9C9;
-        text-align: center;
     }
     #table td:nth-of-type(5) {
         border-bottom: 0.31vw solid #C9C9C9;
-        text-align: center;
     }
+
+    #total td:nth-of-type(2) {
+        border-top: 0.62vw solid #C9C9C9;
+    }
+    #total td:nth-of-type(3) {
+        border-top: 0.62vw solid #C9C9C9;
+    }
+    #total td:nth-of-type(4) {
+        border-top: 0.62vw solid #C9C9C9;
+    }
+    #total td:nth-of-type(5) {
+        border-top: 0.62vw solid #C9C9C9;
+    }
+
 }
 
 #icons {

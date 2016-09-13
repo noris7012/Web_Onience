@@ -16,3 +16,11 @@
     src: local('Nanum Barun Gothic Regular'), local('Nanum Barun Gothic-Regular'), local('NanumBarunGothic Regular');
     src: url(../font/NanumBarunGothic.woff) format('woff');
 }
+
+@font-face {
+    font-family: 'Nanum Barun Gothic';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Nanum Barun Gothic Bold'), local('Nanum Barun Gothic-Bold'), local('NanumBarunGothic Bold');
+    src: url(../font/NanumBarunGothicBold.woff) format('woff');
+}
