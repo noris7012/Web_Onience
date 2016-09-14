@@ -20,3 +20,21 @@ body {
     margin-top: 5.5vh;
     width: 45.5%;
 }
+
+#font1 {
+    font-family: 'Nanum Barun Gothic', sans-serif;
+    font-weight: 300;
+    font-size: 0;
+}
+
+#font2 {
+    font-family: 'Nanum Barun Gothic', sans-serif;
+    font-weight: 400;
+    font-size: 0;
+}
+
+#font3 {
+    font-family: 'Nanum Barun Gothic', sans-serif;
+    font-weight: 700;
+    font-size: 0;
+}
