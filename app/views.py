@@ -155,6 +155,8 @@ def make_list(lst, aver, me, rank):
             ret.insert(i+1, me)
             break
 
+    ret = sorted(ret, key=lambda r: get_amount(r), reverse=True)
+
     # 평균값 추가
     for i in range(0, len(ret)):
         if get_amount(ret[i]) >= get_amount(aver) > get_amount(ret[i+1]):
