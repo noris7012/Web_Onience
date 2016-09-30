@@ -57,36 +57,46 @@
 
                 <div id="clist">
                     <label class="choice">
-                        <input type="radio" name="amount" value="{{ question.4 }}" />
-                        <i></i> {{ question.5 }}
+                        <input id="1" type="radio" name="amount" value="{{ question.4 }}" />
+                        <img id="on1" class="radioimg" src="/static/img/question/radio_on.png" style="display: none">
+                        <img id="off1" class="radioimg" src="/static/img/question/radio_off.png">
+                        {{ question.5 }}
                     </label>
 
                     <hr class="border" />
 
                     <label class="choice">
-                        <input type="radio" name="amount" value="{{ question.6 }}" />
-                        <i></i> {{ question.7 }}
+                        <input id="2" type="radio" name="amount" value="{{ question.6 }}" />
+                        <img id="on2" class="radioimg" src="/static/img/question/radio_on.png" style="display: none">
+                        <img id="off2" class="radioimg" src="/static/img/question/radio_off.png">
+                        {{ question.7 }}
                     </label>
 
                     <hr class="border" />
 
                     <label class="choice">
-                        <input type="radio" name="amount" value="{{ question.8 }}" />
-                        <i></i> {{ question.9 }}
+                        <input id="3" type="radio" name="amount" value="{{ question.8 }}" />
+                        <img id="on3" class="radioimg" src="/static/img/question/radio_on.png" style="display: none">
+                        <img id="off3" class="radioimg" src="/static/img/question/radio_off.png">
+                        {{ question.9 }}
                     </label>
 
                     <hr class="border" />
 
                     <label class="choice">
-                        <input type="radio" name="amount" value="{{ question.10 }}" />
-                        <i></i> {{ question.11 }}
+                        <input id="4" type="radio" name="amount" value="{{ question.10 }}" />
+                        <img id="on4" class="radioimg" src="/static/img/question/radio_on.png" style="display: none">
+                        <img id="off4" class="radioimg" src="/static/img/question/radio_off.png">
+                        {{ question.11 }}
                     </label>
 
                     <hr class="border" />
 
                     <label class="choice">
-                        <input type="radio" name="amount" value="{{ question.12 }}" />
-                        <i></i> {{ question.13 }}
+                        <input id="5" type="radio" name="amount" value="{{ question.12 }}" />
+                        <img id="on5" class="radioimg" src="/static/img/question/radio_on.png" style="display: none">
+                        <img id="off5" class="radioimg" src="/static/img/question/radio_off.png">
+                        {{ question.13 }}
                     </label>
                 </div>
 
@@ -98,5 +108,19 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    var selected = -1;
+    $('input[type=radio][name=amount]').on('change', function() {
+        var id = $(this).attr("id");
+        if (selected > 0 && selected != id) {
+            $('#on'+selected).hide();
+            $('#off'+selected).show();
+        }
+
+        selected = id;
+        $('#off'+id).hide();
+        $('#on'+id).show();
+    });
+</script>
 </body>
 </html>
