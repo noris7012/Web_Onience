@@ -67,10 +67,15 @@ i {
     vertical-align: middle;
     width:  21px;
     height: 21px;
-    border-radius: 50%;
+    border-radius: 100%;
     transition: 0s;
     box-shadow: inset 0 0 0 12px #fff;
     border: 2px solid #74BBB5;
+    background: #74BBB5;
+}
+
+.choice > input:checked + i{ /* (RADIO CHECKED) <i> STYLE */
+    box-shadow: inset 0 0 0 4px #fff;
     background: #74BBB5;
 }
 
@@ -91,15 +96,15 @@ i {
     .choice > i {
         width: 3.28vw;
         height: 3.28vw;
-        border-radius: 50%;
+        border-radius: 100%;
         box-shadow: inset 0 0 0 1.875vw #fff;
         border: 0.3125vw solid #74BBB5;
     }
-}
 
-.choice > input:checked + i{ /* (RADIO CHECKED) <i> STYLE */
-    box-shadow: inset 0 0 0 4px #fff;
-    background: #74BBB5;
+    .choice > input:checked + i{ /* (RADIO CHECKED) <i> STYLE */
+        box-shadow: inset 0 0 0 0.625vw #fff;
+        background: #74BBB5;
+    }
 }
 
 .border {
